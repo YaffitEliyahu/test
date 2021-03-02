@@ -20,7 +20,7 @@
             const superHeroes = request.response;//הערך החוזר
             ShowPicture(superHeroes);
         }
-        function Model(src, id) {
+        function Model(src, id,title) {
             var modal = document.getElementById('myModal');
             // Get the image and insert it inside the modal - use its "alt" text as a caption
             var img = document.getElementById(id);//תפיסת התמונה עליה לחצו
@@ -29,7 +29,7 @@
             img.onclick = function () {
                 modal.style.display = "block";
                 modalImg.src = src;
-                captionText.innerHTML = this.alt;
+                captionText.innerHTML = title;
             }
 
             // Get the <span> element that closes the modal
@@ -64,7 +64,7 @@
                 img.src = imgUrl;
                 img.className = "zoom img-fluid";
                 img.setAttribute("id", id);
-                img.setAttribute('onclick', 'Model("' + UrlBigImg + '","' + id + '")');
+                img.setAttribute('onclick', 'Model("' + UrlBigImg + '","' + id + '","' + picture[i].title + '")');
                 d.appendChild(a);
                 d.appendChild(img);
                 row.appendChild(d);
